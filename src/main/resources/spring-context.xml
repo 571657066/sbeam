@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Spring 容器 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <import resource="spring-context-mybatis.xml"></import>
+
+    <!--使aware接口生效-->
+    <!--<bean id="springHelper" class="com.suoron.springweb.utils.SpringHelper"></bean>-->
+    <!--
+
+        <bean id="chiken" class="com.suoron.springweb.entity.Chiken">
+            <property name="name" value="小花"></property>
+            <property name="age"  value="18"></property>
+            <property name="sex"  value="1"></property>
+        </bean>
+    -->
+
+    <!--
+        <bean id="wealseService" class="com.suoron.springweb.service.impl.WealseServiceImpl" >
+            <property name="chiken" ref="chiken"></property>
+        </bean>
+    -->
+
+    <!--Spring属性文件加载配置器-->
+    <!--    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+            <property name="ignoreUnresolvablePlaceholders" value="true"/>
+            <property name="locations">
+                <array>
+                    <value>classpath:config.properties</value>
+                </array>
+            </property>
+        </bean>-->
+
+    <!--实现spring自动装配-->
+
+    <context:annotation-config />
+    <context:component-scan base-package="com.Judas.Service.**"/>
+
+</beans>

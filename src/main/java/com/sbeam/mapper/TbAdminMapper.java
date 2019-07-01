@@ -1,6 +1,6 @@
-package com.Judas.Dao.Mappering;
+package com.sbeam.mapper;
 
-import com.Judas.Dao.Pojo.TbAdmin;
+import com.sbeam.pojo.TbAdmin;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TbAdminMapper extends Mapper<TbAdmin> {

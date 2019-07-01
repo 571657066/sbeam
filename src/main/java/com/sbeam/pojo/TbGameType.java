@@ -1,9 +1,9 @@
-package com.Judas.Dao.Pojo;
+package com.sbeam.pojo;
 
 import javax.persistence.*;
 
-@Table(name = "message_type")
-public class TbMessageType {
+@Table(name = "game_type")
+public class TbGameType {
     @Id
     private Integer id;
 
@@ -11,10 +11,9 @@ public class TbMessageType {
     private String typeName;
 
     /**
-     * 这一类型的消息id
+     * 这一类型的游戏
      */
-    @Column(name = "message_id")
-    private String messageId;
+    private String games;
 
     /**
      * @return id
@@ -45,20 +44,20 @@ public class TbMessageType {
     }
 
     /**
-     * 获取这一类型的消息id
+     * 获取这一类型的游戏
      *
-     * @return message_id - 这一类型的消息id
+     * @return games - 这一类型的游戏
      */
-    public String getMessageId() {
-        return messageId;
+    public String getGames() {
+        return games;
     }
 
     /**
-     * 设置这一类型的消息id
+     * 设置这一类型的游戏
      *
-     * @param messageId 这一类型的消息id
+     * @param games 这一类型的游戏
      */
-    public void setMessageId(String messageId) {
-        this.messageId = messageId == null ? null : messageId.trim();
+    public void setGames(String games) {
+        this.games = games == null ? null : games.trim();
     }
 }

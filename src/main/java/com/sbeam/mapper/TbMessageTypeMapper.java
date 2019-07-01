@@ -1,6 +1,6 @@
-package com.Judas.Dao.Mappering;
+package com.sbeam.mapper;
 
-import com.Judas.Dao.Pojo.TbMessageType;
+import com.sbeam.pojo.TbMessageType;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TbMessageTypeMapper extends Mapper<TbMessageType> {

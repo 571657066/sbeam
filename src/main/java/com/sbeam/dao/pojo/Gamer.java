@@ -1,10 +1,14 @@
 package com.sbeam.dao.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import java.util.Date;
+import java.util.Map;
 import javax.persistence.*;
 
 @Table(name = "gamer_info")
 public class Gamer {
+
     @Id
     private Integer id;
 
@@ -39,6 +43,7 @@ public class Gamer {
     /**
      * 生日
      */
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
     private Date birthday;
 
     /**

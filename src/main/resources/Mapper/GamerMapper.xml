@@ -11,9 +11,9 @@
     <result column="email" property="email" jdbcType="VARCHAR" />
     <result column="phone" property="phone" jdbcType="INTEGER" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
-    <result column="have_games" property="haveGames" jdbcType="CHAR" />
-    <result column="wish_list" property="wishList" jdbcType="CHAR" />
-    <result column="like_class" property="likeClass" jdbcType="CHAR" />
+    <result column="have_games" property="haveGames" jdbcType="VARCHAR" />
+    <result column="wish_list" property="wishList" jdbcType="VARCHAR" />
+    <result column="like_class" property="likeClass" jdbcType="VARCHAR" />
     <result column="birthday" property="birthday" jdbcType="DATE" />
     <result column="age" property="age" jdbcType="INTEGER" />
     <result column="flag" property="flag" jdbcType="INTEGER" />
@@ -34,10 +34,38 @@
     username=#{username} and
     password=#{password}
   </select>
-<insert id="insertOneUser" parameterType="com.sbeam.dao.pojo.Gamer" >
+  <insert id="insertOneUser" parameterType="com.sbeam.dao.pojo.Gamer" >
     insert into
-    gamer_info
-    (username,password,phone,email)
-values (#{username},#{password},#{phone},#{email})
+        gamer_info
+        (username,password,phone,email)
+    values (#{username},#{password},#{phone},#{email})
 </insert>
+  <update id="updateOneUser" parameterType="com.sbeam.dao.pojo.Gamer">
+    update
+    gamer_info
+    <trim prefix="set" suffixOverrides=",">
+      <if test="password!=null">password=#{password},</if>
+      <if test="email!=null">email=#{email},</if>
+      <if test="phone!=null">phone=#{phone},</if>
+      <if test="qq!=null">qq=#{qq},</if>
+      <if test="birthday!=null">birthday=#{birthday},</if>
+    </trim>
+    where
+    username=#{username}
+  </update>
+  <select id="selectWishGame" parameterType="com.sbeam.dao.pojo.Gamer" resultType="java.lang.String">
+    select
+    wish_list
+    from
+    gamer_info
+    where username=#{username}
+  </select>
+  <update id="addWishGame" parameterType="java.util.Map">
+    update
+    gamer_info
+    set
+    wish_list=#{newgames}
+    where
+    username=#{username}
+  </update>
 </mapper>

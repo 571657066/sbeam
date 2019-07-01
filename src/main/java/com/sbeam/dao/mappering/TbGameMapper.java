@@ -4,4 +4,5 @@ import com.sbeam.dao.pojo.TbGame;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TbGameMapper extends Mapper<TbGame> {
+    public Double SelectIsDiscount(String gamename);
 }

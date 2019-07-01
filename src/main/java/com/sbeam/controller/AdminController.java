@@ -1,5 +1,6 @@
 package com.sbeam.controller;
 
+import com.sbeam.dao.pojo.TbAdmin;
 import com.sbeam.service.AdminService;
 import com.sbeam.util.JsonMsg;
 import org.springframework.stereotype.Controller;
@@ -36,8 +37,8 @@ public class AdminController {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         System.out.println(username + password);
-        Integer login = tbAdminServiceImpl.getLogin(username, password);
-        if (login<=0){
+        TbAdmin tbAdmin = tbAdminServiceImpl.getLogin(username, password);
+        if (tbAdmin==null){
             return JsonMsg.fail().addInfo("login_error", "输入账号用户名与密码不匹配，请重新输入！");
         }
         return JsonMsg.success();

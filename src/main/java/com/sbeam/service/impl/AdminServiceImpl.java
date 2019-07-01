@@ -12,7 +12,7 @@ public class AdminServiceImpl implements AdminService {
     TbAdminMapper tbAdminMapper;
 
     @Override
-    public Integer getLogin(String username, String password) {
+    public TbAdmin getLogin(String username, String password) {
         return tbAdminMapper.getLogin(username,password);
     }
 

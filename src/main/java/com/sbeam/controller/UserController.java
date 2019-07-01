@@ -30,7 +30,7 @@ public class UserController {
      * @param response
      * @return true为用户名密码正常 反之
      */
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    @RequestMapping(value = "/getuserlogin",method = RequestMethod.POST)
     @ResponseBody
     public Object login(@RequestBody Gamer gamer, HttpServletRequest request,HttpServletResponse response){
 //        System.out.println("喵喵喵");

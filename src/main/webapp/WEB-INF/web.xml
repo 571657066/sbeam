@@ -10,6 +10,8 @@
 <!--        <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>-->
 <!--    </listener>-->
     <!-- 配置spring上下文参数 -->
+    <!-- 启动页面 -->
+
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:spring-*.xml</param-value>
@@ -45,4 +47,28 @@
         <servlet-name>springmvc</servlet-name>
         <url-pattern>/*</url-pattern>
     </servlet-mapping>
+
+
+
+    <!--获取静态文件-->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+
+
+
 </web-app>

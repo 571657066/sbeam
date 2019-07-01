@@ -36,7 +36,8 @@
   </select>
 <insert id="insertOneUser" parameterType="com.sbeam.dao.pojo.Gamer" >
     insert into
-        gamer_info
-    values (default ,#{username},#{password},#{phone},#{email})
+    gamer_info
+    (username,password,phone,email)
+values (#{username},#{password},#{phone},#{email})
 </insert>
 </mapper>

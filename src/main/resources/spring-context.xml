@@ -8,6 +8,7 @@
 
     <import resource="spring-context-mybatis.xml"></import>
 
+
     <!--使aware接口生效-->
     <!--<bean id="springHelper" class="com.suoron.springweb.utils.SpringHelper"></bean>-->
     <!--
@@ -38,6 +39,6 @@
     <!--实现spring自动装配-->
 
     <context:annotation-config />
-    <context:component-scan base-package="com.judas.service.**"/>
+    <context:component-scan base-package="com.sbeam.service.**"/>
 
 </beans>

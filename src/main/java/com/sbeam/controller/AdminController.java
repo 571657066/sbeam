@@ -19,7 +19,7 @@ public class AdminController {
      * 登录：跳转到登录页面
      * @return
      */
-    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @RequestMapping(value = "/getlogin", method = RequestMethod.GET)
     public String login(){
         return "login";
 

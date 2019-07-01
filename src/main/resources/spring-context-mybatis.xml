@@ -8,7 +8,7 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 用于配置对应实体类所在的包，多个 package 之间可以用 ',' 号分割 -->
-        <property name="typeAliasesPackage" value="com.judas.dao.pojo,com.judas.dao.pojo.Ext"/>
+        <property name="typeAliasesPackage" value="com.sbeam.dao.pojo"/>
         <!-- 用于配置对象关系映射配置文件所在目录 -->
         <property name="mapperLocations">
             <list>
@@ -28,7 +28,7 @@
 
     <!-- 通用 mappering -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.judas.dao.mappering,com.judas.dao.mappering.Ext"/>
+        <property name="basePackage" value="com.sbeam.dao.mappering,com.sbeam.dao.mappering.Ext"/>
         <property name="properties">
             <value>mappers=tk.mybatis.mapper.common.Mapper</value>
         </property>

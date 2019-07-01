@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<!--head-->
+<head>
+    <meta charset="UTF-8">
+    <title>游戏上传页面</title>
+    <link rel="stylesheet" href="plugins/dropzone/min/basic.min.css"/>
+    <link rel="stylesheet" href="plugins/dropzone/dropzone.css"/>
+
+</head>
+<!--head end-->
+
+<!--body-->
+<body>
+<h1>这是一个游戏上传页面</h1>
+<div class="form-group">
+    游戏名：<input type="text"><span>这是一个游戏</span><br/>
+    <lable>游戏图片</lable>
+    <div id="dropzPic" class="dropzone" style="width: 200px;height: 200px"></div>
+    <lable>游戏文件</lable>
+    <div id="dropzFile" class="dropzone" style="width: 200px;height: 200px"></div>
+    <input type="button" value="上传">
+</div>
+</body>
+<!--body end-->
+
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<script src="plugins/dropzone/min/dropzone.min.js"></script>
+<script type="text/javascript">
+    Dropzone.autoDiscover = false;
+    var myDropzone1 = new Dropzone("#dropzPic", {
+        url: "uploadpic", // 文件提交地址
+        method: "post",  // 也可用put
+        paramName: "dropzFile", // 默认为file
+        maxFiles: 1,// 一次性上传的文件数量上限
+        maxFilesize: 10, // 文件大小，单位：MB
+        acceptedFiles: ".jpg,.gif,.png,.jpeg", // 上传的类型
+        addRemoveLinks: true,
+        parallelUploads: 1,// 一次上传的文件数量
+        // previewsContainer:"#preview", // 上传图片的预览窗口
+        dictDefaultMessage: '拖动图片至此或者点击上传',
+        dictMaxFilesExceeded: "您最多只能上传1张图片！",
+        dictResponseError: '文件上传失败!',
+        dictInvalidFileType: "文件类型只能是*.jpg,*.gif,*.png,*.jpeg。",
+        dictFallbackMessage: "浏览器不受支持",
+        dictFileTooBig: "文件过大上传文件最大支持.",
+        dictRemoveLinks: "删除",
+        dictCancelUpload: "取消",
+        init: function () {
+            this.on("addedfile", function (file) {
+                // 上传文件时触发的事件
+            });
+            this.on("success", function (file, data) {
+                // 上传成功触发的事件
+                $("#dropz").val(data.fileName);
+            });
+            this.on("error", function (file, data) {
+                // 上传失败触发的事件
+                console.log(data);
+            });
+            this.on("removedfile", function (file) {
+                // 删除文件时触发的方法
+            });
+        }
+    });
+    var myDropzone2 = new Dropzone("#dropzFile", {
+        url: "uploadfile", // 文件提交地址
+        method: "post",  // 也可用put
+        paramName: "dropzFile", // 默认为file
+        maxFiles: 1,// 一次性上传的文件数量上限
+        maxFilesize: 10, // 文件大小，单位：MB
+        acceptedFiles: ".zip,.rar", // 上传的类型
+        addRemoveLinks: true,
+        parallelUploads: 1,// 一次上传的文件数量
+        dictDefaultMessage: '拖动压缩包至此或者点击上传',
+        dictMaxFilesExceeded: "您最多只能上传1个文件！",
+        dictResponseError: '文件上传失败!',
+        dictInvalidFileType: "文件类型只能是*.zip,*.rar。",
+        dictFallbackMessage: "浏览器不受支持",
+        dictFileTooBig: "文件过大上传文件最大支持.",
+        dictRemoveLinks: "删除",
+        dictCancelUpload: "取消",
+        init: function () {
+            this.on("addedfile", function (file) {
+                // 上传文件时触发的事件
+            });
+            this.on("success", function (file, data) {
+                // 上传成功触发的事件
+                $("#dropz").val(data.fileName);
+            });
+            this.on("error", function (file, data) {
+                // 上传失败触发的事件
+            });
+            this.on("removedfile", function (file) {
+                // 删除文件时触发的方法
+            });
+        }
+    });
+</script>
+</html>

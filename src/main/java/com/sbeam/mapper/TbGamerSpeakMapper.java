@@ -1,6 +1,6 @@
-package com.Judas.Dao.Mappering;
+package com.sbeam.mapper;
 
-import com.Judas.Dao.Pojo.TbGamerSpeak;
+import com.sbeam.pojo.TbGamerSpeak;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TbGamerSpeakMapper extends Mapper<TbGamerSpeak> {

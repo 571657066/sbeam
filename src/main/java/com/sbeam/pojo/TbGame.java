@@ -1,4 +1,4 @@
-package com.Judas.Dao.Pojo;
+package com.sbeam.pojo;
 
 import javax.persistence.*;
 

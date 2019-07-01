@@ -1,6 +1,6 @@
-package com.Judas.Dao.Mappering;
+package com.sbeam.mapper;
 
-import com.Judas.Dao.Pojo.TbComment;
+import com.sbeam.pojo.TbComment;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TbCommentMapper extends Mapper<TbComment> {

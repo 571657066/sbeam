@@ -1,6 +1,6 @@
-package com.Judas.Dao.Mappering;
+package com.sbeam.mapper;
 
-import com.Judas.Dao.Pojo.TbGameType;
+import com.sbeam.pojo.TbGameType;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface TbGameTypeMapper extends Mapper<TbGameType> {

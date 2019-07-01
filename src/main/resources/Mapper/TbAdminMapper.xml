@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.Judas.Dao.Mappering.TbAdminMapper" >
-  <resultMap id="BaseResultMap" type="com.Judas.Dao.Pojo.TbAdmin" >
+<mapper namespace="com.sbeam.dao.mappering.TbAdminMapper" >
+  <resultMap id="BaseResultMap" type="com.sbeam.dao.pojo.TbAdmin" >
     <!--
       WARNING - @mbg.generated
     -->

@@ -38,6 +38,6 @@
     <!--实现spring自动装配-->
 
     <context:annotation-config />
-    <context:component-scan base-package="com.Judas.Service.**"/>
+    <context:component-scan base-package="com.judas.service.**"/>
 
 </beans>

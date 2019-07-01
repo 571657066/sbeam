@@ -8,27 +8,27 @@
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <!-- 用于配置对应实体类所在的包，多个 package 之间可以用 ',' 号分割 -->
-        <property name="typeAliasesPackage" value="com.Judas.Dao.Pojo,com.Judas.Dao.Pojo.Ext"/>
+        <property name="typeAliasesPackage" value="com.judas.dao.pojo,com.judas.dao.pojo.Ext"/>
         <!-- 用于配置对象关系映射配置文件所在目录 -->
         <property name="mapperLocations">
             <list>
-                <value>classpath:/Mapper/**</value>
-                <value>classpath:/MapperExt/**</value>
+                <value>classpath:/mapper/**</value>
+                <value>classpath:/mapperExt/**</value>
             </list>
         </property>
         <property name="configLocation" value="classpath:/spring-mybatis-config.xml"></property>
     </bean>
 
-    <!-- 扫描 Mappering -->
+    <!-- 扫描 mappering -->
 <!--
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <property name="basePackage" value="com.suoron.ssm.dao.mapping,com.suoron.ssm.dao.mapping.ext" />
     </bean>
 -->
 
-    <!-- 通用 Mappering -->
+    <!-- 通用 mappering -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.Judas.Dao.Mappering,com.Judas.Dao.Mappering.Ext"/>
+        <property name="basePackage" value="com.judas.dao.mappering,com.judas.dao.mappering.Ext"/>
         <property name="properties">
             <value>mappers=tk.mybatis.mapper.common.Mapper</value>
         </property>

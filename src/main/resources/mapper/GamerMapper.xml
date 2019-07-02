@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sbeam.dao.mappering.GamerMapper" >
+  <resultMap id="BaseResultMap" type="com.sbeam.dao.pojo.Gamer" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="INTEGER" />
+    <result column="qq" property="qq" jdbcType="VARCHAR" />
+    <result column="have_games" property="haveGames" jdbcType="VARCHAR" />
+    <result column="wish_list" property="wishList" jdbcType="VARCHAR" />
+    <result column="like_class" property="likeClass" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="DATE" />
+    <result column="age" property="age" jdbcType="INTEGER" />
+    <result column="flag" property="flag" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    id, username, password, email, phone, qq, have_games, wish_list, like_class, birthday, 
+    age, flag
+  </sql>
+  <select id="selectOneUser" parameterType="com.sbeam.dao.pojo.Gamer" resultType="com.sbeam.dao.pojo.Gamer">
+    select
+    <include refid="Base_Column_List" />
+    from
+    gamer_info
+    where
+    username=#{username} and
+    password=#{password}
+  </select>
+  <insert id="insertOneUser" parameterType="com.sbeam.dao.pojo.Gamer" >
+    insert into
+        gamer_info
+        (username,password,phone,email)
+    values (#{username},#{password},#{phone},#{email})
+</insert>
+  <update id="updateOneUser" parameterType="com.sbeam.dao.pojo.Gamer">
+    update
+    gamer_info
+    <trim prefix="set" suffixOverrides=",">
+      <if test="password!=null">password=#{password},</if>
+      <if test="email!=null">email=#{email},</if>
+      <if test="phone!=null">phone=#{phone},</if>
+      <if test="qq!=null">qq=#{qq},</if>
+      <if test="birthday!=null">birthday=#{birthday},</if>
+    </trim>
+    where
+    username=#{username}
+  </update>
+  <select id="selectWishGame" parameterType="com.sbeam.dao.pojo.Gamer" resultType="java.lang.String">
+    select
+    wish_list
+    from
+    gamer_info
+    where username=#{username}
+  </select>
+  <update id="addWishGame" parameterType="java.util.Map">
+    update
+    gamer_info
+    set
+    wish_list=#{newgames}
+    where
+    username=#{username}
+  </update>
+</mapper>

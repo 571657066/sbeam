@@ -16,4 +16,46 @@
     -->
     id, adminName, password, flag
   </sql>
+
+  <sql id="admin">
+      admin_info
+    </sql>
+
+<!--验证账号密码-->
+  <select id="getLogin" resultMap="TbAdmin">
+    SELECT
+    *
+    FROM
+    <include refid="admin"></include>
+    <where>
+    adminName=#{username}，
+    password=#{password}
+    </where>
+
+  </select>
+
+
+<!--查询单个管理员信息-->
+  <select id="getTbAdmin" resultMap="deptResult">
+    SELECT
+    *
+    FROM
+    <include refid="admin"></include>
+    <where>
+      id=#{id}，
+    </where>
+  </select>
+<!--添加管理管理员信息-->
+<!--  <update id="updateDeptById" parameterType="com.hrms.bean.Department">
+    UPDATE
+    <include refid="table_name"></include>
+    SET
+    dept_name = #{department.deptName, jdbcType = VARCHAR},
+    dept_leader = #{department.deptLeader, jdbcType = VARCHAR}
+    WHERE
+    dept_id = #{deptId}
+  </update>-->
+
+
 </mapper>
+

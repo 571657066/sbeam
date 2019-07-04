@@ -10,8 +10,19 @@ public class TbMessage {
     /**
      * 主题id
      */
+    @Column(name = "topic_name")
+    private String  topicName;
+
     @Column(name = "topic_id")
-    private Integer topicId;
+    private String  topicId;
+
+    public String getTopicId() {
+        return topicId;
+    }
+
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
+    }
 
     /**
      * 主题类型
@@ -55,17 +66,17 @@ public class TbMessage {
      *
      * @return topic_id - 主题id
      */
-    public Integer getTopicId() {
-        return topicId;
+    public String getTopicName() {
+        return topicName;
     }
 
     /**
      * 设置主题id
      *
-     * @param topicId 主题id
+     * @param topicName 主题id
      */
-    public void setTopicId(Integer topicId) {
-        this.topicId = topicId;
+    public void setTopicName(String topicName) {
+        this.topicName = topicName;
     }
 
     /**

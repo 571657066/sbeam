@@ -12,18 +12,57 @@
     <result column="lowest_price" property="lowestPrice" jdbcType="DECIMAL" />
     <result column="discount" property="discount" jdbcType="DOUBLE" />
     <result column="type" property="type" jdbcType="CHAR" />
-    <result column="desc" property="desc" jdbcType="VARCHAR" />
+    <result column="intro" property="intro" jdbcType="VARCHAR" />
     <result column="file_path" property="filePath" jdbcType="VARCHAR" />
     <result column="img_path" property="imgPath" jdbcType="VARCHAR" />
     <result column="developer" property="developer" jdbcType="VARCHAR" />
     <result column="sales" property="sales" jdbcType="INTEGER" />
+    <result column="about_topicid" property="topicid" jdbcType="VARCHAR" />
     <result column="flag" property="flag" jdbcType="INTEGER" />
   </resultMap>
+
   <sql id="Base_Column_List" >
     <!--
       WARNING - @mbg.generated
     -->
-    id, gamename, original_price, now_price, lowest_price, discount, type, desc, file_path, 
-    img_path, developer, sales, flag
+      id, gamename, original_price, now_price, lowest_price, discount, type, intro, file_path,
+      img_path, developer, sales, about_topicid, flag
   </sql>
+  <select id="SelectIsDiscount" parameterType="java.lang.String" resultType="java.lang.Double">
+  select
+  discount
+  from
+  game_info
+  where
+  gamename=#{gamename}
+</select>
+  <select id="selectOneGame" parameterType="java.lang.String" resultType="com.sbeam.dao.pojo.TbGame">
+    select
+    *
+    from
+    game_info
+    where
+    flag=1 and
+    gamename=#{gamename}
+  </select>
+  <update id="updateOneGame" parameterType="com.sbeam.dao.pojo.TbGame">
+    update
+    game_info
+    <trim prefix="set" suffixOverrides=",">
+      <if test="originalPrice!=null">original_price=#{originalPrice},</if>
+      <if test="nowPrice!=null">now_price=#{nowPrice},</if>
+      <if test="lowestPrice!=null">lowest_price=#{lowestPrice},</if>
+      <if test="discount!=null">discount=#{discount},</if>
+      <if test="type!=null">type=#{type},</if>
+      <if test="intro!=null">intro=#{intro},</if>
+      <if test="filePath!=null">file_path=#{filePath},</if>
+      <if test="imgPath!=null">img_path=#{imgPath},</if>
+      <if test="developer!=null">developer=#{developer},</if>
+      <if test="sales!=null">sales=#{sales},</if>
+      <if test="flag!=null">flag=#{flag},</if>
+      <if test="topicid!=null">about_topicid=#{topicid},</if>
+    </trim>
+    where
+    gamename=#{gamename}
+  </update>
 </mapper>

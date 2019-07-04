@@ -8,6 +8,8 @@
 
     <import resource="spring-context-mybatis.xml"></import>
 
+    <bean id="JsonMsg" class="com.sbeam.util.JsonMsg"></bean>
+
 
     <!--使aware接口生效-->
     <!--<bean id="springHelper" class="com.suoron.springweb.utils.SpringHelper"></bean>-->

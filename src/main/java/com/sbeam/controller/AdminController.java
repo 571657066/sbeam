@@ -1,28 +1,37 @@
 package com.sbeam.controller;
 
-import com.sbeam.dao.pojo.TbAdmin;
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.sbeam.dao.pojo.*;
 import com.sbeam.service.AdminService;
+import com.sbeam.service.impl.AdminServiceImpl;
 import com.sbeam.util.JsonMsg;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.util.List;
 
 @Controller
+@RequestMapping(value = "/admin")
 public class AdminController {
     @Resource
-    AdminService tbAdminServiceImpl;
+    AdminService adminService;
 
+    @Autowired
+    AdminServiceImpl AdminServiceImpl;
     /**
      * 登录：跳转到登录页面
      * @return
      */
     @RequestMapping(value = "/getlogin", method = RequestMethod.GET)
     public String login(){
-        return "login";
+        return "lohdfgin";
 
     }
 
@@ -31,17 +40,19 @@ public class AdminController {
      * @param request
      * @return
      */
-    @RequestMapping(value = "/dologin", method = RequestMethod.POST)
+    @RequestMapping(value = "/admin/dologin", method = RequestMethod.POST)
     @ResponseBody
-    public JsonMsg dologin(HttpServletRequest request){
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        System.out.println(username + password);
-        TbAdmin tbAdmin = tbAdminServiceImpl.getLogin(username, password);
-        if (tbAdmin==null){
-            return JsonMsg.fail().addInfo("login_error", "输入账号用户名与密码不匹配，请重新输入！");
+    public TbAdmin dologin(@RequestBody TbAdmin tbAdmin ,HttpServletRequest request) throws IOException {
+        System.out.println(tbAdmin.getAdminname()+tbAdmin.getPassword());
+        TbAdmin login = adminService.getLogin(tbAdmin.getAdminname(), tbAdmin.getPassword());
+        HttpSession session = request.getSession();
+        if (login!=null){
+            System.out.println("登陆成功");
+            session.setAttribute("admin",login);
+            return login;
+        }else {
+            return null;
         }
-        return JsonMsg.success();
     }
 
     /**
@@ -50,7 +61,7 @@ public class AdminController {
      */
     @RequestMapping(value = "/main", method = RequestMethod.GET)
     public String main(){
-        return "main";
+        return "magsin";
     }
 
     /**
@@ -58,8 +69,36 @@ public class AdminController {
      * @return
      */
     @RequestMapping(value = "/logout", method = RequestMethod.GET)
+    @ResponseBody
     public String logout(){
         return "login";
     }
+
+    /**
+     * 分页显示
+     * @param pageNo
+     * @param pageSize
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/list")
+    public Object pageList(@RequestBody Page2 page2){
+        System.out.println(page2.getPageNo()+"吃屎");
+
+        PageHelper.startPage(page2.getPageNo(),page2.getPageSize());
+        TbAdmin tbAdmin = new TbAdmin();
+        List<TbAdmin> list = adminService.listAllPage(tbAdmin);
+        PageInfo<TbAdmin> pageInfo = new PageInfo<>(list);
+        Page page = new Page();
+        page.setCurrentPage(pageInfo.getPageNum());
+        page.setPageCount(pageInfo.getPages());
+
+        PageList pageList = new PageList();
+        pageList.setPages(page);
+        pageList.setTbAdmins(list);
+        return pageList;
+
+    }
+
 
 }

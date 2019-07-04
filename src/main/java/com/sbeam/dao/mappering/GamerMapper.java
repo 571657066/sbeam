@@ -35,9 +35,29 @@ public interface GamerMapper extends Mapper<Gamer> {
     String  selectWishGame(Gamer gamer);
 
     /**
-     * 将list里的游戏id添加到用户的set里
+     * 将map里的游戏id添加到用户里
      * @param
      * @return
      */
     int addWishGame(Map<String ,String> map);
+
+    /**
+     * 查询用户已有的游戏
+     * @param gamer
+     * @return
+     */
+    String selectHadGame(Gamer gamer);
+    /**
+     * 用户购买游戏后添加进数据库
+     * @param map
+     * @return
+     */
+    int addHadGame(Map<String ,String> map);
+
+    /**
+     * 根据用户名查询某个用户
+     * @param gamername
+     * @return
+     */
+    Gamer selectGamer(String gamername);
 }

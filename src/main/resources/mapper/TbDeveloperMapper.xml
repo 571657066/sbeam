@@ -8,9 +8,9 @@
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="developername" property="developername" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
-    <result column="released_game" property="releasedGame" jdbcType="CHAR" />
-    <result column="debug_game" property="debugGame" jdbcType="CHAR" />
-    <result column="message_ids" property="messageIds" jdbcType="CHAR" />
+    <result column="released_game" property="releasedGame" jdbcType="VARCHAR" />
+    <result column="debug_game" property="debugGame" jdbcType="VARCHAR" />
+    <result column="message_ids" property="messageIds" jdbcType="VARCHAR" />
     <result column="alipay_id" property="alipayId" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
@@ -19,4 +19,41 @@
     -->
     id, developername, password, released_game, debug_game, message_ids, alipay_id
   </sql>
+  <select id="selectOneDeveloper" parameterType="com.sbeam.dao.pojo.TbDeveloper" resultType="com.sbeam.dao.pojo.TbDeveloper">
+    select
+    <include refid="Base_Column_List"></include>
+    from
+    gamedeveloper_info
+    where
+    developername=#{developername} and
+    password=#{password}
+  </select>
+  <insert id="insertOneDeveloper" parameterType="com.sbeam.dao.pojo.TbDeveloper" >
+     insert into
+          gamedeveloper_info
+          (developername, password, released_game, debug_game, message_ids, alipay_id)
+      values (#{developername},#{password},#{releasedGame},#{debugGame},#{messageIds},#{alipayId})
+  </insert>
+  <update id="updateOneDeveloper" parameterType="com.sbeam.dao.pojo.TbDeveloper">
+    update
+    gamedeveloper_info
+    <trim prefix="set" suffixOverrides=",">
+      <if test="password!=null">password=#{password},</if>
+      <if test="releasedGame!=null">released_game=#{releasedGame},</if>
+      <if test="debugGame!=null">debug_game=#{debugGame},</if>
+      <if test="messageIds!=null">message_ids=#{messageIds},</if>
+      <if test="alipayId!=null">alipay_id=#{alipayId},</if>
+    </trim>
+    where
+    developername=#{developername}
+  </update>
+  <select id="selectDeveloper" parameterType="com.sbeam.dao.pojo.TbDeveloper" resultType="com.sbeam.dao.pojo.TbDeveloper">
+    select
+    <include refid="Base_Column_List"></include>
+    from
+    gamedeveloper_info
+    where
+    developername=#{developername}
+  </select>
+
 </mapper>

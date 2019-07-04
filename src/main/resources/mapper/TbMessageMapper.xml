@@ -5,8 +5,9 @@
     <!--
       WARNING - @mbg.generated
     -->
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="topic_id" property="topicId" jdbcType="INTEGER" />
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="topic_id" property="topicId" jdbcType="VARCHAR" />
+    <result column="topic_name" property="topicName" jdbcType="VARCHAR" />
     <result column="topic_type" property="topicType" jdbcType="VARCHAR" />
     <result column="related_img" property="relatedImg" jdbcType="VARCHAR" />
     <result column="message" property="message" jdbcType="VARCHAR" />
@@ -16,6 +17,35 @@
     <!--
       WARNING - @mbg.generated
     -->
-    id, topic_id, topic_type, related_img, message, form_uid
+     topic_name, topic_id,topic_type, related_img, message, form_uid
   </sql>
+  <insert id="insertOne" parameterType="com.sbeam.dao.pojo.TbMessage" >
+    insert
+    into
+    message
+    ( topic_name, topic_id,topic_type, related_img, message, form_uid)
+    values
+    ( #{topicName},#{topicId},#{topicType},#{relatedImg},#{message},#{formUid})
+  </insert>
+  <select id="selectOne" parameterType="com.sbeam.dao.pojo.TbMessage" resultType="com.sbeam.dao.pojo.TbMessage">
+    select
+    *
+    from
+    message
+    where
+    topic_name=#{topicName}
+  </select>
+  <update id="updateOne" parameterType="java.lang.String">
+    update
+    message
+    <trim prefix="set" suffixOverrides=",">
+      <if test="topicName!=null">topic_name=#{topicName},</if>
+      <if test="topicType!=null">topic_type=#{topicType},</if>
+      <if test="relatedImg!=null">related_img=#{relatedImg},</if>
+      <if test="message!=null">message=#{message},</if>
+      <if test="formUid!=null">form_uid=#{formUid},</if>
+    </trim>
+    where
+    topic_name=#{topicName}
+  </update>
 </mapper>

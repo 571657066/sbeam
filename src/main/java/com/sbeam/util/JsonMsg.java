@@ -1,5 +1,7 @@
 package com.sbeam.util;
 
+import org.springframework.context.annotation.Scope;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -7,6 +9,7 @@ import java.util.Map;
  * @author GenshenWang.nomico
  * @date 2018/3/7.
  */
+@Scope("prototype")
 public class JsonMsg {
 
     private int code;

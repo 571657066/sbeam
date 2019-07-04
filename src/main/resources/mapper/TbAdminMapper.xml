@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.sbeam.dao.mappering.TbAdminMapper" >
+
   <resultMap id="BaseResultMap" type="com.sbeam.dao.pojo.TbAdmin" >
     <!--
       WARNING - @mbg.generated
     -->
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="adminName" property="adminname" jdbcType="VARCHAR" />
+    <result column="adminName" property="adminName" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="flag" property="flag" jdbcType="INTEGER" />
+
   </resultMap>
   <sql id="Base_Column_List" >
     <!--
@@ -17,45 +19,88 @@
     id, adminName, password, flag
   </sql>
 
+
+
   <sql id="admin">
       admin_info
     </sql>
 
 <!--验证账号密码-->
-  <select id="getLogin" resultMap="TbAdmin">
+  <select id="getLogin"  parameterType="TbAdmin" resultType="TbAdmin" >
     SELECT
     *
     FROM
     <include refid="admin"></include>
-    <where>
-    adminName=#{username}，
+   where
+    adminName=#{adminname} and
+
     password=#{password}
-    </where>
 
   </select>
 
 
 <!--查询单个管理员信息-->
-  <select id="getTbAdmin" resultMap="deptResult">
+  <select id="getTbAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin">
     SELECT
     *
     FROM
     <include refid="admin"></include>
     <where>
-      id=#{id}，
+      id=#{id}
     </where>
   </select>
-<!--添加管理管理员信息-->
-<!--  <update id="updateDeptById" parameterType="com.hrms.bean.Department">
-    UPDATE
-    <include refid="table_name"></include>
-    SET
-    dept_name = #{department.deptName, jdbcType = VARCHAR},
-    dept_leader = #{department.deptLeader, jdbcType = VARCHAR}
-    WHERE
-    dept_id = #{deptId}
-  </update>-->
 
+<!--分页展示-->
+  <select id="listAllPage" resultType="com.sbeam.dao.pojo.TbAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin">
+    select * from admin_info
+    <where>
+      <if test="adminname != null and adminname != ''">
+        and adminname = #{adminname}
+      </if>
+      <if test="password != null and password != ''">
+        and password = #{password}
+      </if>
+    </where>
+  </select>
+
+  <!--添加管理员-->
+  <insert id="addTbAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin" >
+    insert into admin_info (adminname,password) values (
+
+            #{adminname},
+            #{password}
+    )
+  </insert>
+
+<!--修改管理员信息-->
+  <update id="updateTbAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin">
+    update admin_info
+    <set>
+      <if test="adminname != null and adminname !=''">
+        adminname = #{adminname},
+      </if>
+      <if test="password != null and password !=''">
+        password = #{password}
+      </if>
+    </set>
+    where id = #{id}
+  </update>
+<!--伪删除对象-->
+  <delete id="delAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin">
+    UPDATE admin_info set flag = 0 where id = #{id}
+
+  </delete>
+<!--全部展示-->
+  <select id="listAllAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin" resultType="com.sbeam.dao.pojo.TbAdmin">
+    SELECT * FROM admin_info WHERE flag = 1
+  </select>
+<!--批量删除-->
+  <delete id="batDelAdmin" parameterType="java.util.List">
+    delete from admin_info where id in
+    <foreach collection="array" item="ids" open="(" separator="," close=")">
+      #{ids}
+    </foreach>
+  </delete>
 
 </mapper>
 

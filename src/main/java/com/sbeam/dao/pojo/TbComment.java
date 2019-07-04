@@ -1,6 +1,10 @@
 package com.sbeam.dao.pojo;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
+import java.util.Date;
 
 @Table(name = "comment")
 public class TbComment {
@@ -11,7 +15,7 @@ public class TbComment {
      * 评论消息或评论的id
      */
     @Column(name = "speak_id")
-    private Integer speakId;
+    private String speakId;
 
     /**
      * 评论的用户id
@@ -23,6 +27,17 @@ public class TbComment {
      * 评论的内容
      */
     private String content;
+
+    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    private Timestamp datatime;
+
+    public Timestamp getDatetime() {
+        return datatime;
+    }
+
+    public void setDatetime(Timestamp datatime) {
+        this.datatime = datatime;
+    }
 
     /**
      * @return id
@@ -43,7 +58,7 @@ public class TbComment {
      *
      * @return speak_id - 评论消息或评论的id
      */
-    public Integer getSpeakId() {
+    public String getSpeakId() {
         return speakId;
     }
 
@@ -52,7 +67,7 @@ public class TbComment {
      *
      * @param speakId 评论消息或评论的id
      */
-    public void setSpeakId(Integer speakId) {
+    public void setSpeakId(String speakId) {
         this.speakId = speakId;
     }
 

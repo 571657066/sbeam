@@ -14,4 +14,30 @@
     -->
     gamer_id, friend_id
   </sql>
+  <select id="selectFriend" parameterType="com.sbeam.dao.pojo.Gamer" resultType="java.lang.String">
+    select
+    f.friend_id
+    from
+    gamer_friends f,
+    gamer_info g
+    where
+    f.gamer_id=g.id and
+    g.id=${id}
+  </select>
+  <select id="selectFriendId" parameterType="java.lang.String" resultType="java.lang.Integer">
+    select
+    id
+    from
+    gamer_info
+    where
+    username=#{friendname}
+  </select>
+  <update id="updateFriends" parameterType="java.util.Map">
+  update
+  gamer_friends
+  set
+  friend_id=#{friends}
+  where
+  gamer_id=#{gamerId}
+  </update>
 </mapper>

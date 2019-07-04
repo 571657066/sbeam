@@ -40,7 +40,7 @@ public class TbGame {
     /**
      * 简介
      */
-    private String desc;
+    private String intro;
 
     /**
      * 游戏文件的路径
@@ -63,6 +63,13 @@ public class TbGame {
      * 销量
      */
     private Integer sales;
+
+    /**
+     * 该游戏的评论
+     */
+    @Column(name = "about_topicid")
+    private String topicid;
+
 
     /**
      * 0表示审核中游戏，1表示上架的游戏，2表示下架的游戏
@@ -192,17 +199,17 @@ public class TbGame {
      *
      * @return desc - 简介
      */
-    public String getDesc() {
-        return desc;
+    public String getIntro() {
+        return intro;
     }
 
     /**
      * 设置简介
      *
-     * @param desc 简介
+     * @param intro 简介
      */
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setIntro(String intro) {
+        this.intro = intro == null ? null : intro.trim();
     }
 
     /**
@@ -276,6 +283,17 @@ public class TbGame {
     public void setSales(Integer sales) {
         this.sales = sales;
     }
+
+
+    public String getTopicid() {
+        return topicid;
+    }
+
+    public void setTopicid(String topicid) {
+        this.topicid = topicid;
+    }
+
+
 
     /**
      * 获取0表示审核中游戏，1表示上架的游戏，2表示下架的游戏

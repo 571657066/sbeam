@@ -3,9 +3,16 @@ package com.sbeam.service;
 import com.sbeam.dao.pojo.TbAdmin;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 
 public interface AdminService {
 
     public TbAdmin getLogin(String username,String password);
     public TbAdmin getTbAdmin(Integer id);
+    public List<TbAdmin> listAllPage(TbAdmin tbAdmin);
+    public boolean addTbAdmin(TbAdmin tbAdmin);
+    public Integer updateTbAdmin(TbAdmin tbAdmin);
+    public Integer delAdmin(TbAdmin tbAdmin);
+    public List<TbAdmin> listAllAdmin();
 }

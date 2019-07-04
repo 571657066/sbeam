@@ -18,7 +18,7 @@ public class Gamer {
 
     private String email;
 
-    private Integer phone;
+    private String phone;
 
     private String qq;
 
@@ -115,14 +115,14 @@ public class Gamer {
     /**
      * @return phone
      */
-    public Integer getPhone() {
+    public String getPhone() {
         return phone;
     }
 
     /**
      * @param phone
      */
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 

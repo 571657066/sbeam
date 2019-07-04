@@ -31,7 +31,7 @@
             <property name="forceBigDecimals" value="ture"/>
         </javaTypeResolver>
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.judas.dao.pojo" targetProject="src/main/java">
+        <javaModelGenerator targetPackage="com.sbeam.dao.pojo" targetProject="src/main/java">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>

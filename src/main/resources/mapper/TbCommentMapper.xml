@@ -6,14 +6,45 @@
       WARNING - @mbg.generated
     -->
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="speak_id" property="speakId" jdbcType="INTEGER" />
+    <result column="speak_id" property="speakId" jdbcType="VARCHAR" />
     <result column="user_id" property="userId" jdbcType="INTEGER" />
     <result column="content" property="content" jdbcType="VARCHAR" />
+    <result column="datatime" property="datatime" jdbcType="TIMESTAMP"/>
   </resultMap>
   <sql id="Base_Column_List" >
     <!--
       WARNING - @mbg.generated
     -->
-    id, speak_id, user_id, content
+    id, speak_id, user_id, content,datatime
   </sql>
+  <update id="updateOne" parameterType="com.sbeam.dao.pojo.TbComment">
+    update
+    comment
+    <trim prefix="set" suffixOverrides=",">
+      <if test="speak_id!=null">speak_id=#{speakId},</if>
+      <if test="user_id!=null">user_id=#{userId},</if>
+      <if test="content!=null">content=#{content},</if>
+    </trim>
+    where
+    id=#{id}
+  </update>
+  <insert id="insertOne" parameterType="com.sbeam.dao.pojo.TbComment">
+    insert into
+    comment
+    (speak_id, user_id, content)
+    values
+    (#{speakId},#{userId},#{content})
+  </insert>
+  <select id="selectLikeOne" parameterType="java.lang.String" resultType="com.sbeam.dao.pojo.TbComment">
+    select
+    <include refid="Base_Column_List"></include>
+    from
+    comment
+    where
+    speak_id
+    like '#{topicid}%'
+    order by
+    datetime
+    desc
+  </select>
 </mapper>

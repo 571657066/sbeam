@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sbeam.dao.mappering.RecommendGames">
+
+    <!--随机游戏推荐-->
+    <select id="getRecommendGames" resultType="Games">
+     select * from game_info order by rand() limit 0,5
+    </select>
+
+    <!--销量热门推荐-->
+    <select id="sealPopular" resultType="Games">
+     select * from game_info  order by  sales desc limit 8
+    </select>
+
+    <!--底裤折扣推荐-->
+    <select id="lowDiscount" resultType="Games">
+     select * from game_info  order by  discount asc limit 3
+    </select>
+
+
+</mapper>

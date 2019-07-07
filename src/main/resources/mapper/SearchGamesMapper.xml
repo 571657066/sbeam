@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sbeam.dao.mappering.SearchGamesDao">
+
+    <!--游戏搜索-->
+    <select id="secrchGames" resultType="Games">
+     select * from game_info where gamename like CONCAT(CONCAT('%', #{gameName}),'%')
+    </select>
+
+    <!--游戏详情展示-->
+    <select id="getGameById" resultType="Games">
+     select * from game_info where id=#{id}
+    </select>
+
+</mapper>

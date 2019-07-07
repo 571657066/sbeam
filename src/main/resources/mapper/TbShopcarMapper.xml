@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sbeam.dao.mappering.TbShopcarMapper" >
+    <resultMap id="BaseResultMap" type="com.sbeam.dao.pojo.TbShopcar" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="gamerid" property="gamerid" jdbcType="INTEGER" />
+        <result column="gamername" property="gamername" jdbcType="VARCHAR" />
+        <result column="gameid" property="gameid" jdbcType="VARCHAR" />
+        <result column="totalprice" property="totalprice" jdbcType="DECIMAL"/>
+    </resultMap>
+    <sql id="Base_Column_List" >
+        <!--
+          WARNING - @mbg.generated
+        -->
+        id, gamerid, gamername,gameid,totalprice
+    </sql>
+<update id="updateShopcar" parameterType="com.sbeam.dao.pojo.TbShopcar">
+    update
+    shopcar
+    <trim prefix="set" suffixOverrides=",">
+        <if test="gameid!=null">gameid=#{gameid},</if>
+        <if test="totalprice!=null">totalprice=#{totalprice},</if>
+    </trim>
+    where
+    gamername=#{gamername}
+</update>
+<select id="selectOneshopcar" parameterType="com.sbeam.dao.pojo.Gamer" resultType="com.sbeam.dao.pojo.TbShopcar">
+    select
+    *
+    from
+    shopcar
+    where
+    gamerid=#{gamerid}
+</select>
+<insert id="insertOneshopcar" parameterType="com.sbeam.dao.pojo.Gamer">
+    insert
+    into
+    shopcar
+    (gamerid, gamername)
+    values
+    (#{gamerid},#{gamername})
+</insert>
+
+</mapper>

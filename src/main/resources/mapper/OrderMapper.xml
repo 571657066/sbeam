@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sbeam.dao.mapper.OrderMapper">
+
+    <select id="getOrderInfos" parameterType="int" resultType="com.sbeam.dao.pojo.OrderInfo">
+        select o.order_id,o.user_id,o.order_number,o.order_status,o.price,o.price_paid,o.pay_mode,o.title,DATE_FORMAT(o.create_time,"%Y-%m-%d %H:%i:%S") create_time
+        from orderinfo o
+        where o.user_id = #{userId}
+    </select>
+
+    <select id="getOrderDetails" resultType="com.sbeam.dao.pojo.OrderDetails" parameterType="String">
+        select * from orderdetails
+        where order_number = #{orderNumber}
+    </select>
+
+    <select id="getOrderCounts" parameterType="String" resultType="int">
+        select count(1) from orderinfo o where o.create_time=#{createTime}
+    </select>
+
+    <insert id="addOrderInfo" parameterType="com.sbeam.dao.pojo.OrderInfo">
+        insert into orderinfo values (default,#{userId},#{orderNumber},default,#{price},#{pricePaid},default,#{title},#{createTime})
+    </insert>
+
+    <insert id="addOrderDetails" parameterType="java.util.List">
+        insert into orderdetails values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (default,#{item.gameId},#{item.gameName},#{item.gamePic},#{item.price},#{item.payPrice},#{item.orderNumber},default)
+        </foreach>
+    </insert>
+
+    <update id="updateOrderInfo" parameterType="String">
+        update orderinfo set order_status = 1,pay_mode = 'ZFB' where order_number = #{orderNumber}
+    </update>
+
+    <update id="updateOrderDetails" parameterType="String">
+        update orderdetails set detail_status = 1 where order_number = #{orderNumber}
+    </update>
+</mapper>

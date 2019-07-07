@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sbeam.dao.mappering.LikeGamesDao">
+<!--where type=#{type,jdbcType=INTEGER} order by rand() limit 0,2-->
+    <!--where a.type like concat('%',select like_class from gamer_info where id=1,'%') order by rand() limit 0,3-->
+    <!--<if test="array != null and array.length > 0">-->
+        <!--WHERE type in-->
+        <!--<foreach collection="array" open="(" close=")" item="type" separator=",">-->
+            <!--#{type}-->
+        <!--</foreach>-->
+        <!--order by rand() limit 0,2-->
+    <!--</if>-->
+
+    <!--用户点击推荐-->
+    <select id="getGamesByType" resultType="Games">
+     select * from game_info where type=#{type,jdbcType=INTEGER} order by rand() limit 0,3
+    </select>
+
+    <!--通过用户id获取喜欢类型-->
+    <select id="likeTypes" resultType="String">
+        select like_class from gamer_info where id=#{id}
+    </select>
+
+    <!--通过上面获取的类型比较查询推荐游戏-->
+    <select id="likeTypesGet" resultType="Games">
+        select a.* from game_info a,gamer_info b
+        <where>
+            a.type in
+            <foreach collection="array" open="(" close=")" separator="," index="key" item="split">
+                #{split}
+            </foreach>
+            order by rand() limit 0,5
+        </where>
+
+    </select>
+</mapper>

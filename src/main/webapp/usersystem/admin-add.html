@@ -1,0 +1,135 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+
+<link rel="stylesheet" type="text/css" href="static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="lib/Hui-iconfont/1.0.8/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="static/h-ui.admin/css/style.css" />
+
+
+	<title>个人信息修改</title>
+
+</head>
+<body>
+	<form class="form form-horizontal" id="form-admin-add">
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>登录名：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text" value=""  placeholder="" id="username" name="username">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>密码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text"  placeholder="" id="a2" name="password">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>年龄：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text"  placeholder="" id="a3" name="age">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>QQ号码：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="text" class="input-text"   placeholder="" id="a4" name="qq">
+		</div>
+	</div>
+
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+		<div class="formControls col-xs-8 col-sm-9">
+			<input type="email" class="input-text"   placeholder="" id="a5" name="email">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3">角色：</label>
+		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+			<select class="select" name="adminRole" size="1">
+				<option value="0">超级管理员</option>
+				<option value="1">总编</option>
+			</select>
+			</span> </div>
+	</div>
+
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius" onclick="doupdate()" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+		</div>
+	</div>
+	</form>
+
+<script src="../usersystem/assets/jquery/jquery-2.2.4.min.js"></script>
+<script type="text/javascript">
+	var a="a";
+    var id= window.location.href.split("?")[1].split("=")[1];
+    var length = window.location.href.split("&").length;
+	for (var i=1;i<length;i++){
+        $(".input-text")[i-1].value=window.location.href.split("&")[i].split("=")[1];
+	}
+
+
+    function doupdate(){
+        $.ajax({
+            type:'POST',
+            url:'/usercontroller/update',
+            contentType:"application/json;charse=utf-8",
+            data:JSON.stringify({
+                "adminname":$("#username").val(),
+                "password":$("#password").val(),
+				"age":$("#age").val(),
+				"phone":$("#phone").val(),
+				"email":$("#email").val()
+            }),
+            success:function (responseText) {
+                console.log(responseText);
+                if(responseText!=null){
+                    window.location.href = "index.html?userId="+responseText.adminName;
+                }else {
+                    alert("用户名或密码错误");
+                }
+            },
+            error: function (message) {
+                window.alert("登录失败")
+            },
+            dataType:'json'
+
+
+        })
+    }
+
+
+
+
+
+
+
+
+
+
+$(function(){
+		submitHandler:function(form){
+			$(form).ajaxSubmit({
+				type: 'post',
+				url: "/usercontroller/update" ,
+				success: function(data){
+					layer.msg('添加成功!',{icon:1,time:1000});
+				},
+                error: function(XmlHttpRequest, textStatus, errorThrown){
+					layer.msg('error!',{icon:1,time:1000});
+				}
+			});
+			var index = parent.layer.getFrameIndex(window.name);
+			parent.$('.btn-refresh').click();
+			parent.layer.close(index);
+		}
+	});
+});
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

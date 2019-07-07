@@ -7,9 +7,9 @@ public class TbMessageType {
     @Id
     private Integer id;
 
+
     @Column(name = "type_name")
     private String typeName;
-
     /**
      * 这一类型的消息id
      */

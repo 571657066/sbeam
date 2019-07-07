@@ -17,7 +17,7 @@
     <result column="img_path" property="imgPath" jdbcType="VARCHAR" />
     <result column="developer" property="developer" jdbcType="VARCHAR" />
     <result column="sales" property="sales" jdbcType="INTEGER" />
-    <result column="about_topicid" property="topicid" jdbcType="VARCHAR" />
+    <result column="about_topicid" property="topicId" jdbcType="VARCHAR" />
     <result column="flag" property="flag" jdbcType="INTEGER" />
   </resultMap>
 
@@ -36,7 +36,7 @@
   where
   gamename=#{gamename}
 </select>
-  <select id="selectOneGame" parameterType="java.lang.String" resultType="com.sbeam.dao.pojo.TbGame">
+  <select id="selectOneGame" parameterType="java.lang.String" resultMap="BaseResultMap">
     select
     *
     from
@@ -60,9 +60,64 @@
       <if test="developer!=null">developer=#{developer},</if>
       <if test="sales!=null">sales=#{sales},</if>
       <if test="flag!=null">flag=#{flag},</if>
-      <if test="topicid!=null">about_topicid=#{topicid},</if>
+      <if test="topicId!=null">about_topicid=#{topicId},</if>
     </trim>
     where
     gamename=#{gamename}
   </update>
+  <insert id="insertOne" parameterType="com.sbeam.dao.pojo.TbGame">
+    insert
+    into
+    game_info
+    (gamename, original_price, now_price, lowest_price, discount, type, intro, file_path,
+      img_path, developer)
+    values
+    (#{gamename},#{originalPrice},#{nowPrice},#{discount},#{type},#{intro},#{filePath},#{imgPath},#{developer})
+  </insert>
+  <select id="selectOneForid" parameterType="java.lang.Integer" resultType="com.sbeam.dao.pojo.TbGame">
+    select
+    *
+    from
+    game_info
+    where
+    id=#{id} and
+    flag=1
+  </select>
+
+  <select id="getNewsInfoBy" resultType="com.sbeam.dao.pojo.TbGame" resultMap="BaseResultMap">
+
+  select
+*
+  from
+  game_info
+  where
+  flag="1"
+ </select>
+
+  <update id="deleArticeById" parameterType="com.sbeam.dao.pojo.TbGame">
+        update game_info
+        set
+        flag = '0'
+        where id=#{id};
+
+    </update>
+
+
+  <update id="allDeleAtricleByIds" parameterType="com.sbeam.dto.ArrayListVo">
+    update game_info
+    set
+    flag = '1'
+    where
+    id in(
+    <foreach collection="unIds" item="Id" separator=",">
+      #{Id}
+    </foreach>
+    )
+
+
+  </update>
+
+
+
+
 </mapper>

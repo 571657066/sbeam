@@ -58,7 +58,7 @@
   function dologin(){
       $.ajax({
           type:'POST',
-          url:'/admin/dologin',
+          url:'/admin/login',
           contentType:"application/json;charse=utf-8",
           data:JSON.stringify({
               "adminname":$("#username").val(),
@@ -67,7 +67,7 @@
           success:function (responseText) {
               console.log(responseText);
               if(responseText!=null){
-                  window.location.href = "index.html?userId="+responseText.adminName;
+                  window.location.href = "index.html?userId="+responseText.adminname;
               }else {
                   alert("用户名或密码错误");
               }

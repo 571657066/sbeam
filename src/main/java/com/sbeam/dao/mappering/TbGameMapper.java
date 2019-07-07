@@ -1,7 +1,10 @@
 package com.sbeam.dao.mappering;
 
 import com.sbeam.dao.pojo.TbGame;
+import com.sbeam.dto.ArrayListVo;
 import tk.mybatis.mapper.common.Mapper;
+
+import java.util.List;
 
 public interface TbGameMapper extends Mapper<TbGame> {
     /**
@@ -24,5 +27,28 @@ public interface TbGameMapper extends Mapper<TbGame> {
      * @return
      */
     Integer updateOneGame(TbGame tbGame);
+
+    /**
+     * 添加游戏
+     * @param tbGame
+     * @return
+     */
+    Integer insertOne(TbGame tbGame);
+
+    /**
+     * 根据id找到这个游戏(这个函数不应该有的)
+     * @param id
+     * @return
+     */
+    TbGame selectOneForid(Integer id);
+
+    //分页1
+    List<TbGame> getNewsInfoBy();
+    //单删
+    Integer deleArticeById(TbGame article);
+    //模糊查询
+    List<TbGame> seletcAtricleId(String getaTitle);
+    //多选删除
+    Integer allDeleAtricleByIds(ArrayListVo arrayListVo);
 
 }

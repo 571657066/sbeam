@@ -1,7 +1,7 @@
 package com.sbeam.service;
 
-import com.sbeam.dao.pojo.Gamer;
-import com.sbeam.dao.pojo.TbGame;
+import com.sbeam.dao.pojo.*;
+import com.sbeam.dto.ArrayListVo;
 
 import java.util.HashMap;
 import java.util.List;
@@ -85,4 +85,37 @@ public interface UserService {
      * @return
      */
     boolean addHadGame(Gamer gamer,String games);
+
+    /**
+     * 消息发送给某个人,socket发送和数据库写入
+     * @param tbComment
+     * @param gamer
+     * @return
+     */
+    boolean speakTo(TbComment tbComment,String gamername,String othername);
+
+    /**
+     * 通过socket接收别人发的消息，这里不需要进行数据库写入
+     * @return
+     */
+    boolean receiveFrom();
+
+    /**
+     * 将game加入到gamer的购物车
+     * @param gamer
+     * @param game
+     * @return
+     */
+    boolean changeshopcar(Gamer gamer,TbGame game);
+
+
+    //分页1
+    List<Gamer> getNewsInfoBy();
+    //单删
+    Integer deleArticeById(Gamer article);
+    //模糊查询
+    List<Gamer> seletcAtricleId(String getaTitle);
+    //多选删除
+    Integer allDeleAtricleByIds(ArrayListVo arrayListVo);
+
 }

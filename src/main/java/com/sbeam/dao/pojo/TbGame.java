@@ -68,7 +68,7 @@ public class TbGame {
      * 该游戏的评论
      */
     @Column(name = "about_topicid")
-    private String topicid;
+    private String topicId;
 
 
     /**
@@ -285,12 +285,12 @@ public class TbGame {
     }
 
 
-    public String getTopicid() {
-        return topicid;
+    public String getTopicId() {
+        return topicId;
     }
 
-    public void setTopicid(String topicid) {
-        this.topicid = topicid;
+    public void setTopicId(String topicId) {
+        this.topicId = topicId;
     }
 
 
@@ -311,5 +311,25 @@ public class TbGame {
      */
     public void setFlag(Integer flag) {
         this.flag = flag;
+    }
+
+    @Override
+    public String toString() {
+        return "TbGame{" +
+                "id=" + id +
+                ", gamename='" + gamename + '\'' +
+                ", originalPrice=" + originalPrice +
+                ", nowPrice=" + nowPrice +
+                ", lowestPrice=" + lowestPrice +
+                ", discount=" + discount +
+                ", type='" + type + '\'' +
+                ", intro='" + intro + '\'' +
+                ", filePath='" + filePath + '\'' +
+                ", imgPath='" + imgPath + '\'' +
+                ", developer='" + developer + '\'' +
+                ", sales=" + sales +
+                ", topicId='" + topicId + '\'' +
+                ", flag=" + flag +
+                '}';
     }
 }

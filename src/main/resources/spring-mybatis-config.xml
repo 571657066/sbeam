@@ -31,7 +31,7 @@
         <setting name="defaultExecutorType" value="SIMPLE"/>
 
         <!-- 使用驼峰命名法转换字段。 -->
-        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--<setting name="mapUnderscoreToCamelCase" value="true"/>-->
 
         <!-- 设置本地缓存范围 session:就会有数据的共享 statement:语句范围 (这样就不会有数据的共享 ) defalut:session -->
         <setting name="localCacheScope" value="SESSION"/>
@@ -41,7 +41,7 @@
     </settings>
 <!--分页插件-->
     <plugins>
-        <plugin interceptor="com.github.pagehelper.PageHelper">
+        <plugin interceptor="com.github.pagehelper.PageInterceptor">
            <!-- &lt;!&ndash; 4.0.0以后版本可以不设置该参数，指明使用的是什么数据库 &ndash;&gt;
             <property name="dialect" value="mysql"/>
             &lt;!&ndash; 该参数默认为false &ndash;&gt;

@@ -4,6 +4,7 @@ import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.sbeam.dao.mappering.TbAdminMapper;
 import com.sbeam.dao.pojo.TbAdmin;
+import com.sbeam.dto.ArrayListVo;
 import com.sbeam.service.AdminService;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -17,8 +18,8 @@ public class AdminServiceImpl implements AdminService {
     TbAdminMapper tbAdminMapper;
 
     @Override
-    public TbAdmin getLogin(String username, String password) {
-        return tbAdminMapper.getLogin(username,password);
+    public TbAdmin getLogin(TbAdmin tbAdmin) {
+        return tbAdminMapper.getLogin(tbAdmin);
     }
 
     @Override
@@ -58,6 +59,12 @@ public class AdminServiceImpl implements AdminService {
     public List<TbAdmin> listAllAdmin() {
 
         return tbAdminMapper.listAllAdmin();
+    }
+
+    //¶àÑ¡É¾³ý
+    @Override
+    public Integer allDeleAtricleByIds(ArrayListVo arrayListVo) {
+        return tbAdminMapper.allDeleAtricleByIds(arrayListVo);
     }
 
 

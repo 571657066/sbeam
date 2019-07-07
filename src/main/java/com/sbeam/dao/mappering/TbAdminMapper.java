@@ -1,6 +1,7 @@
 package com.sbeam.dao.mappering;
 
 import com.sbeam.dao.pojo.TbAdmin;
+import com.sbeam.dto.ArrayListVo;
 import org.apache.ibatis.annotations.Param;
 import tk.mybatis.mapper.common.Mapper;
 
@@ -9,52 +10,54 @@ import java.util.List;
 public interface TbAdminMapper extends Mapper<TbAdmin> {
 
     /**
-     * ÑéÖ¤¹ÜÀíÔ±ÃÜÂë
-     * @param adminname
-     * @param password
+     * éªŒè¯ç®¡ç†å‘˜å¯†ç 
+     * @param
      * @return
      */
-    public TbAdmin getLogin(String adminname,String password);
+    public TbAdmin getLogin(TbAdmin tbAdmin);
 
     /**
-     *  ²éÑ¯µ¥¸ö¹ÜÀíÔ±ĞÅÏ¢
+     *  æŸ¥è¯¢å•ä¸ªç®¡ç†å‘˜ä¿¡æ¯
      * @param id
      * @return
      */
     public TbAdmin getTbAdmin(Integer id);
 
     /**
-     * ·ÖÒ³²éÑ¯
+     * åˆ†é¡µæŸ¥è¯¢
      * @param tbAdmin
      * @return
      */
     public List<TbAdmin> listAllPage(TbAdmin tbAdmin);
 
     /**
-     * Ìí¼Ó¹ÜÀíÔ±
+     * æ·»åŠ ç®¡ç†å‘˜
      * @param tbAdmin
      * @return
      */
     public Integer addTbAdmin(TbAdmin tbAdmin);
 
     /**
-     * ĞŞ¸Ä¹ÜÀíĞÅÏ¢
+     * ä¿®æ”¹ç®¡ç†ä¿¡æ¯
      * @param tbAdmin
      * @return
      */
     public Integer updateTbAdmin(TbAdmin tbAdmin);
 
     /**
-     * Î±É¾³ı
+     * ä¼ªåˆ é™¤
      * @param tbAdmin
      * @return
      */
     public Integer delAdmin(TbAdmin tbAdmin);
 
     /**
-     * ±éÀúËù
+     * éå†æ‰€
      * @return
      */
     public List<TbAdmin> listAllAdmin();
+
+    //å¤šé€‰åˆ é™¤
+    Integer allDeleAtricleByIds(ArrayListVo arrayListVo);
 
 }

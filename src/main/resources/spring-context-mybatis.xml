@@ -28,7 +28,7 @@
 
     <!-- 通用 mappering -->
     <bean class="tk.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.sbeam.dao.mappering,com.sbeam.dao.pojo"/>
+        <property name="basePackage" value="com.sbeam.dao.mappering,com.sbeam.dao.pojo,com.sbeam.dao.mapper"/>
         <property name="properties">
             <value>mappers=tk.mybatis.mapper.common.Mapper</value>
         </property>

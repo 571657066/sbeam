@@ -1,8 +1,11 @@
 package com.sbeam.dao.mappering;
 
+import com.sbeam.dao.pojo.Article;
 import com.sbeam.dao.pojo.Gamer;
+import com.sbeam.dto.ArrayListVo;
 import tk.mybatis.mapper.common.Mapper;
 
+import java.util.List;
 import java.util.Map;
 
 public interface GamerMapper extends Mapper<Gamer> {
@@ -60,4 +63,19 @@ public interface GamerMapper extends Mapper<Gamer> {
      * @return
      */
     Gamer selectGamer(String gamername);
+
+    /**
+     * 为执行任务而设立的  查出所有有邮箱的用户名的名字
+     * @return
+     */
+    List<String> selectallForTask();
+
+    //获取所有
+    List<Gamer> getNewsInfoBy();
+    //单删
+    Integer deleArticeById(Gamer gamer);
+    //模糊查询
+    List<Gamer> seletcAtricleId(String getaTitle);
+    //多选删除
+    Integer allDeleAtricleByIds(ArrayListVo arrayListVo);
 }

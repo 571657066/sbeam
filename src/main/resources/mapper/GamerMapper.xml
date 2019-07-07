@@ -9,7 +9,7 @@
     <result column="username" property="username" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="email" property="email" jdbcType="VARCHAR" />
-    <result column="phone" property="phone" jdbcType="INTEGER" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
     <result column="qq" property="qq" jdbcType="VARCHAR" />
     <result column="have_games" property="haveGames" jdbcType="VARCHAR" />
     <result column="wish_list" property="wishList" jdbcType="VARCHAR" />
@@ -67,5 +67,63 @@
     wish_list=#{newgames}
     where
     username=#{username}
+  </update>
+  <select id="selectHadGame" parameterType="com.sbeam.dao.pojo.Gamer" resultType="java.lang.String">
+    select
+        have_games
+    from
+        gamer_info
+    where username=#{username}
+  </select>
+  <select id="selectGamer" parameterType="java.lang.String" resultType="com.sbeam.dao.pojo.Gamer">
+  select
+  id, username, email, phone, qq, have_games, wish_list, like_class, birthday,
+    age, flag
+  from
+  gamer_info
+  where
+  username=#{gamername}
+  </select>
+<select id="selectallForTask" resultType="java.util.List">
+  select
+  username
+  from
+  gamer_info
+  where
+  flag=1 and
+  email is not null;
+</select>
+
+  <select id="getNewsInfoBy" resultType="Gamer">
+
+  select
+  id, username, email, phone, qq, have_games, wish_list, like_class, birthday,age
+  from
+  gamer_info
+  where
+  flag="1"
+ </select>
+
+  <update id="deleArticeById" parameterType="com.sbeam.dao.pojo.Gamer">
+        update gamer_info
+        set
+        flag = '1'
+        where id=#{Id};
+
+    </update>
+
+
+  <update id="allDeleAtricleByIds" parameterType="com.sbeam.dto.ArrayListVo">
+    update gamer_info
+    set
+    flag = '1'
+    where
+    id in(
+    <foreach collection="unIds" item="Id" separator=",">
+      #{Id}
+    </foreach>
+    )
+
+
   </update>
 </mapper>

@@ -1,10 +1,10 @@
 package com.sbeam.service.impl;
 
-import com.sbeam.dao.mappering.GamerMapper;
-import com.sbeam.dao.mappering.TbFriendsMapper;
-import com.sbeam.dao.pojo.Gamer;
-import com.sbeam.dao.pojo.TbGame;
+import com.sbeam.dao.mappering.*;
+import com.sbeam.dao.pojo.*;
+import com.sbeam.dto.ArrayListVo;
 import com.sbeam.service.UserService;
+import com.sbeam.util.TotalPrice;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -16,13 +16,22 @@ import java.util.Map;
 
 @Service
 public class UserServiceImpl implements UserService {
+
+
     @Resource
     GamerMapper gamerMapper;
 
     @Resource
     TbFriendsMapper tbFriendsMapper;
 
+    @Resource
+    TbShopcarMapper tbShopcarMapper;
     List<TbGame> list=null;
+    @Resource
+    TbCommentMapper tbCommentMapper;
+    @Resource
+    TbGameMapper tbGameMapper;
+
     @Override
     public Gamer Login(Gamer gamer) {
         gamer = gamerMapper.selectOneUser(gamer);
@@ -58,7 +67,25 @@ public class UserServiceImpl implements UserService {
          String list = gamerMapper.selectWishGame(gamer);
         return list;
     }
+    @Override
+    public boolean receiveFrom() {
+        return false;
+    }
 
+    @Override
+    public boolean speakTo(TbComment tbComment, String gamername, String othername) {
+        Gamer gamer = gamerMapper.selectGamer(gamername);
+        Integer gamerId = gamer.getId();
+        Gamer other = gamerMapper.selectGamer(othername);
+        Integer otherId = other.getId();
+        tbComment.setSpeakId(gamerId.toString());
+        tbComment.setUserId(otherId);
+        Integer integer = tbCommentMapper.insertOne(tbComment);
+        if (integer>0){
+            return true;
+        }
+        return false;
+    }
 
     @Override
     public boolean addWishGame(Gamer gamer,String games) {
@@ -138,7 +165,76 @@ public class UserServiceImpl implements UserService {
         return gamer;
     }
 
+ @Override
+    public boolean changeshopcar(Gamer gamer, TbGame game) {
+        Integer flag=0;
+        TbGame tbGame = tbGameMapper.selectOneGame(game.getGamename());
+        TbShopcar tbShopcar = tbShopcarMapper.selectOneshopcar(gamer);
+        if (tbShopcar.getGamerid().indexOf(tbGame.getId())!=-1) {
+            //这里表示购物车添加一个
+            if (tbShopcar == null) {
+                flag = tbShopcarMapper.insertOneshopcar(gamer);
+                if (flag < 0) {
+                    return false;
+                }
+                tbShopcar = tbShopcarMapper.selectOneshopcar(gamer);
+            }
+            Integer gameid = tbGame.getId();
+            TbShopcar shopcar = new TbShopcar();
+            String gameidlist = tbShopcar.getGameid();
+            if (gameidlist == null) {
+                gameidlist = gameid.toString();
+                shopcar.setGameid(gameidlist);
+            } else {
+                gameidlist = gameidlist.concat(",").concat(gameid.toString());
+                shopcar.setGameid(gameidlist);
+            }
+            shopcar.setGamerid(gamer.getId().toString());
+            shopcar.setGamername(gamer.getUsername());
+            shopcar.setTotalprice(TotalPrice.gettotalpriceForid(gameidlist));
+            tbShopcarMapper.updateShopcar(shopcar);
+        }else {
+            //这里表示购物车减少一个
+            Integer gameId = tbGame.getId();
+            String gamesid = tbShopcar.getGameid();
+            String replace=null;
+            if (gamesid.indexOf(gameId)==0){
+                replace = gamesid.replace(gameId.toString() + ",", "");
+            }else {
+                replace=gamesid.replace(","+gameId.toString(),"");
+            }
+            tbShopcar.setGameid(replace);
+            tbShopcar.setTotalprice(TotalPrice.gettotalpriceForid(gamesid));
+            tbShopcarMapper.updateShopcar(tbShopcar);
+        }
+        return true;
+    }
 
 
+    /**
+     *
+     * @return
+     */
+    @Override
+    public List<Gamer> getNewsInfoBy() {
+        return gamerMapper.getNewsInfoBy();
+    }
+
+    //单删除
+    @Override
+    public Integer deleArticeById(Gamer article) {
+        return gamerMapper.deleArticeById(article);
+    }
+    //模糊查询
+    @Override
+    public List<Gamer> seletcAtricleId(String getaTitle) {
+        return gamerMapper.seletcAtricleId(getaTitle);
+    }
+
+    //多选删除
+    @Override
+    public Integer allDeleAtricleByIds(ArrayListVo arrayListVo) {
+        return gamerMapper.allDeleAtricleByIds(arrayListVo);
+    }
 
 }

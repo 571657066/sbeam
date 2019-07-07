@@ -201,3 +201,30 @@ html.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+ul.about li span.value {
+  text-align: left;
+  float: right;
+}
+ul.about li {
+  margin: 0;
+  display: block;
+  border-bottom: 1px solid #e6e6e6;
+}
+
+ul.about li:last-child {
+  border-bottom: none;
+}
+ul.about li {
+  font-size: 18px;
+  margin:0;
+}
+ul.about li {
+  padding-left: 2px;
+}
+.col-md-6 {
+  -ms-flex: 0 0 80%;
+  flex: 0 0 80%;
+  max-width: 80%;
+}
+

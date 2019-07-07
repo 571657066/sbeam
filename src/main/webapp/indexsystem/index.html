@@ -2,21 +2,30 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 
-    <!-- Title -->
-    <title>Sbeam-Games</title>
+
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">    <!-- Title -->
+    <title>Sbeam-Games首页</title>
 
     <!-- Favicon -->
     <link rel="icon" href="img/core-img/favicon1.ico">
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
-
+    <style>
+        .owl-stage{
+            display: flex;
+        }
+        .single-games-slide{
+            /*width: 199px !important;*/
+            /*height: 400px;*/
+            margin-right: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -52,7 +61,7 @@
                             </div>
                             <!-- Login Area -->
                             <div class="login-area">
-                                <a href="#"><span>Login / Register</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
+                                <a href="#"><span>登陆 / 注册</span> <i class="fa fa-lock" aria-hidden="true"></i></a>
                             </div>
                         </div>
                     </div>
@@ -86,30 +95,13 @@
                                     <li><a href="index.html">首页</a></li>
                                     <li><a href="game-review.html">游戏</a>
                                         <ul class="dropdown">
-                                            <li><a href="game-review.html">游戏评论</a></li>
-                                            <li><a href="single-game-review.html">单一的游戏评论</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="#">网页</a>
-                                        <ul class="dropdown">
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="post.html">Articles</a></li>
-                                            <li><a href="single-post.html">Single Articles</a></li>
-                                            <li><a href="game-review.html">Game Review</a></li>
-                                            <li><a href="single-game-review.html">Single Game Review</a></li>
-                                            <li><a href="contact.html">Contact</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="post.html">Articles</a>
-                                        <ul class="dropdown">
-                                            <li><a href="post.html">Articles</a></li>
-                                            <li><a href="single-post.html">Single Articles</a></li>
-                                        </ul>
-                                    </li>
-                                    <li><a href="single-game-review.html">游戏测评</a>
-                                        <ul class="dropdown">
-                                            <li><a href="game-review.html">Game Review</a></li>
-                                            <li><a href="single-game-review.html">Single Game Review</a></li>
+                                            <li><a href="game-review.html">角色扮演</a></li>
+                                            <li><a href="single-game-review.html">动作格斗</a></li>
+                                            <li><a href="game-review.html">射击</a></li>
+                                            <li><a href="game-review.html">手游</a></li>
+                                            <li><a href="game-review.html">回合制</a></li>
+                                            <li><a href="game-review.html">竞技</a></li>
+                                            <li><a href="game-review.html">体育竞速</a></li>
                                         </ul>
                                     </li>
                                     <li><a href="contact.html">联系</a></li>
@@ -120,12 +112,8 @@
 
                         <!-- Top Social Info -->
                         <div class="top-social-info">
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Dribbble"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Behance"><i class="fa fa-behance" aria-hidden="true"></i></a>
-                            <a href="#" data-toggle="tooltip" data-placement="top" title="Linkedin"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="购物车" ><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                         </div>
                     </nav>
                 </div>
@@ -173,36 +161,7 @@
     </div>
     <!-- ##### Hero Area End ##### -->
 
-    <!-- ##### Games Area Start ##### -->
-    <div class="games-area section-padding-100-0">
-        <div class="container">
-            <div class="row">
-                <!-- Single Games Area -->
-                <div class="col-12 col-md-4">
-                    <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="100ms">
-                        <img src="img/bg-img/game1.jpg" alt="">
-                        <a href="#" class="btn egames-btn mt-30">View Games</a>
-                    </div>
-                </div>
 
-                <!-- Single Games Area -->
-                <div class="col-12 col-md-4">
-                    <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="300ms">
-                        <img src="img/bg-img/game2.jpg" alt="">
-                        <a href="#" class="btn egames-btn mt-30">View Games</a>
-                    </div>
-                </div>
-
-                <!-- Single Games Area -->
-                <div class="col-12 col-md-4">
-                    <div class="single-games-area text-center mb-100 wow fadeInUp" data-wow-delay="500ms">
-                        <img src="img/bg-img/game3.jpg" alt="">
-                        <a href="#" class="btn egames-btn mt-30">View Games</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ##### Games Area End ##### -->
 
     <!-- ##### Monthly Picks Area Start ##### -->
@@ -227,14 +186,14 @@
                 <div class="col-12">
                     <ul class="nav nav-tabs wow fadeInUp" data-wow-delay="300ms" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">Popular</a>
+                            <a class="nav-link active" id="popular-tab" data-toggle="tab" href="#popular" role="tab" aria-controls="popular" aria-selected="true">最受欢迎</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">Latest</a>
+                            <a class="nav-link" id="latest-tab" data-toggle="tab" href="#latest" role="tab" aria-controls="latest" aria-selected="false">推荐</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" id="editor-tab" data-toggle="tab" href="#editor" role="tab" aria-controls="editor" aria-selected="false">Editor’s Pick</a>
-                        </li>
+                        <!--<li class="nav-item">-->
+                            <!--<a class="nav-link" id="editor-tab" data-toggle="tab" href="#editor" role="tab" aria-controls="editor" aria-selected="false">Editor’s Pick</a>-->
+                        <!--</li>-->
                     </ul>
                 </div>
             </div>
@@ -243,104 +202,105 @@
         <div class="tab-content wow fadeInUp" data-wow-delay="500ms" id="myTabContent">
             <div class="tab-pane fade show active" id="popular" role="tabpanel" aria-labelledby="popular-tab">
                 <!-- Popular Games Slideshow -->
-                <div class="popular-games-slideshow owl-carousel">
+                <div class="popular-games-slideshow owl-carousel" id="hot">
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/55.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Grand Theft Auto V</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide" >-->
+                        <!--<a href="https://www.baidu.com"><img src="img/bg-img/50.jpg" id="a1" alt="" ></a>-->
 
-                    <!-- 单体游戏 -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/56.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Doom</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Adventure</a>
-                            </div>
-                        </div>
-                    </div>
+                        <!--<div class="slide-text">-->
+                            <!--<a  class="game-title" id="b1">1</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c1">1</a></a>-->
+                                <!--<a >现价: <a id="d1">1</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/57.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">God of War</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; 单体游戏 &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/51.jpg" id="a2" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b2" class="game-title">2</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c2">2</a></a>-->
+                                <!--<a >现价: <a id="d2">2</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/58.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Bloodborne</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Adventure</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/52.jpg" id="a3" alt="" >-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b3" class="game-title">3</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c3">3</a></a><b></b>-->
+                                <!--<a >现价: <a id="d3">3</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/59.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Persona 5</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/53.jpg" alt="" id="a4">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b4" class="game-title">4</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c4">4</a></a><b></b>-->
+                                <!--<a >现价: <a id="d4">4</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/55.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">God of War</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/54.jpg" alt="" id="a5">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b5" class="game-title">5</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c5">5</a></a><b></b>-->
+                                <!--<a >现价: <a id="d5">5</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/56.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Bloodborne</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Adventure</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/55.jpg" alt="" id="a6">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b6" class="game-title">6</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c6">6</a></a><b></b>-->
+                                <!--<a >现价: <a id="d6">6</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/57.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Persona 5</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/56.jpg" alt="" id="a7">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b7" class="game-title">7</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c7">7</a></a><b></b>-->
+                                <!--<a >现价: <a id="d7">7</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/57.jpg" alt="" id="a8">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" id="b8" class="game-title">8</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a >原价: <a id="c8">8</a></a><b></b>-->
+                                <!--<a >现价: <a id="d8">8</a></a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div></div>
                 </div>
             </div>
             <div class="tab-pane fade" id="latest" role="tabpanel" aria-labelledby="latest-tab">
@@ -445,108 +405,109 @@
 
                 </div>
             </div>
-            <div class="tab-pane fade" id="editor" role="tabpanel" aria-labelledby="editor-tab">
-                <!-- Editor Games Slideshow -->
-                <div class="editor-games-slideshow owl-carousel">
+            <!--<div class="tab-pane fade" id="editor" role="tabpanel" aria-labelledby="editor-tab">-->
+                <!--&lt;!&ndash; Editor Games Slideshow &ndash;&gt;-->
+                <!--<div class="editor-games-slideshow owl-carousel">-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/50.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Grand Theft Auto V</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/50.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">Grand Theft Auto V</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Action</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/51.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Doom</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Adventure</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/51.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">Doom</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Adventure</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/52.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">God of War</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/52.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">God of War</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Action</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/53.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Bloodborne</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Adventure</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/53.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">Bloodborne</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Adventure</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Persona 5</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/54.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">Persona 5</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Action</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/52.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">God of War</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/52.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">God of War</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Action</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/53.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Bloodborne</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Adventure</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/53.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">Bloodborne</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Adventure</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                    <!-- Single Games -->
-                    <div class="single-games-slide">
-                        <img src="img/bg-img/54.jpg" alt="">
-                        <div class="slide-text">
-                            <a href="#" class="game-title">Persona 5</a>
-                            <div class="meta-data">
-                                <a href="#">User: 9.1/10</a>
-                                <a href="#">Action</a>
-                            </div>
-                        </div>
-                    </div>
+                    <!--&lt;!&ndash; Single Games &ndash;&gt;-->
+                    <!--<div class="single-games-slide">-->
+                        <!--<img src="img/bg-img/54.jpg" alt="">-->
+                        <!--<div class="slide-text">-->
+                            <!--<a href="#" class="game-title">Persona 5</a>-->
+                            <!--<div class="meta-data">-->
+                                <!--<a href="#">User: 9.1/10</a>-->
+                                <!--<a href="#">Action</a>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
 
-                </div>
-            </div>
+                <!--</div>-->
+            <!--</div>-->
+
         </div>
     </section>
     <!-- ##### Monthly Picks Area End ##### -->
@@ -562,13 +523,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="100ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/14.jpg" alt="">
+                                        <img src="img/bg-img/14.jpg" id="a1" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Assemble Your Squad and Join the Battle</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b1">Assemble Your Squad and Join the Battle</p>
+                                        <span>原价：<a id="c1"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d1">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -576,13 +537,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="200ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/15.jpg" alt="">
+                                        <img src="img/bg-img/15.jpg" id="a2" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Tips to improve your game</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b2">Tips to improve your game</p>
+                                        <span>原价：<a id="c2"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d2">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -590,13 +551,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="300ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/16.jpg" alt="">
+                                        <img src="img/bg-img/16.jpg" id="a3" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Game reviews: the best of 2018</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b3">Game reviews: the best of 2018</p>
+                                        <span>原价：<a id="c3"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d3">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -604,13 +565,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="400ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/17.jpg" alt="">
+                                        <img src="img/bg-img/17.jpg" id="a4" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Assemble Your Squad and Join the Battle</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b4">Assemble Your Squad and Join the Battle</p>
+                                        <span>原价：<a id="c4"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d4">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -618,13 +579,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="500ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/18.jpg" alt="">
+                                        <img src="img/bg-img/18.jpg" id="a5" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Tips to improve your game</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b5">Tips to improve your game</p>
+                                        <span>原价：<a id="c5"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d5">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -632,13 +593,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="600ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/14.jpg" alt="">
+                                        <img src="img/bg-img/14.jpg" id="a6" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Game reviews: the best of 2018</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b6">Game reviews: the best of 2018</p>
+                                        <span>原价：<a  id="c6"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d6">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -646,13 +607,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="700ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/15.jpg" alt="">
+                                        <img src="img/bg-img/15.jpg" id="a7" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Tips to improve your game</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b7">Tips to improve your game</p>
+                                        <span>原价：<a id="c7"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d7">8.3/10</a></div>
                                 </div>
                             </a>
 
@@ -660,13 +621,13 @@
                                 <!-- Single Video Widget -->
                                 <div class="single-video-widget d-flex wow fadeInUp" data-wow-delay="800ms">
                                     <div class="video-thumbnail">
-                                        <img src="img/bg-img/16.jpg" alt="">
+                                        <img src="img/bg-img/16.jpg" id="a8" alt="">
                                     </div>
                                     <div class="video-text">
-                                        <p class="video-title mb-0">Game reviews: the best of 2018</p>
-                                        <span>Nintendo Wii, PS4, XBox 360</span>
+                                        <p class="video-title mb-0" id="b8">Game reviews: the best of 2018</p>
+                                        <span>原价：<a id="c8"></a></span>
                                     </div>
-                                    <div class="video-rating">8.3/10</div>
+                                    <div class="video-rating" >现价：<a id="d8">8.3/10</a></div>
                                 </div>
                             </a>
                         </div>
@@ -676,67 +637,50 @@
                 <div class="col-12 col-md-6 col-lg-8">
                     <div class="tab-content" id="video-tabContent">
                         <div class="tab-pane fade show active" id="video-1" role="tabpanel" aria-labelledby="video1">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/45.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/45.jpg);" id="e1">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-2" role="tabpanel" aria-labelledby="video2">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/46.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/46.jpg);" id="e2">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-3" role="tabpanel" aria-labelledby="video3">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/47.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/47.jpg);" id="e3">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-4" role="tabpanel" aria-labelledby="video4">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/48.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/48.jpg);" id="e4">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-5" role="tabpanel" aria-labelledby="video5">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/49.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/49.jpg);" id="e5">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-6" role="tabpanel" aria-labelledby="video6">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/45.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/45.jpg);" id="e6">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-7" role="tabpanel" aria-labelledby="video7">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/46.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/46.jpg);" id="e7">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
+
                             </div>
                         </div>
                         <div class="tab-pane fade" id="video-8" role="tabpanel" aria-labelledby="video8">
-                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/47.jpg);">
+                            <div class="video-playground bg-img" style="background-image: url(img/bg-img/47.jpg);" id="e8">
                                 <!-- Play Button -->
-                                <div class="play-btn">
-                                    <a href="https://www.youtube.com/watch?v=7HKoqNJtMTQ" class="play-button"><img src="img/core-img/play.png" alt=""></a>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -753,66 +697,69 @@
                 <div class="col-12 col-lg-8">
                     <div class="mb-100">
                         <!-- Title -->
-                        <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">Latest Articles</h2>
+                        <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">这折扣老板要卖底裤了</h2>
 
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="300ms">
                             <div class="article-thumbnail">
-                                <img src="img/bg-img/6.jpg" alt="">
+                                <img src="img/bg-img/6.jpg" id="f1" alt="">
                             </div>
                             <div class="article-content">
-                                <a href="single-post.html" class="post-title">Sony’s new releases for 2018</a>
+                                <a href="single-post.html" class="post-title" id="g1">Sony’s new releases for 2018</a>
                                 <div class="post-meta">
-                                    <a href="#" class="post-date">July 12, 2018</a>
-                                    <a href="#" class="post-comments">2 Comments</a>
+                                    <a  class="post-date" id="h1"><a>现价：</a>1</a>
+                                    <a  class="post-comments" id="i1"><a>原价：</a>1</a>
+                                    <a  class="post-date" id="j1"><a>折扣：</a>1</a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
+                                <p id="k1">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
                             </div>
                         </div>
 
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="500ms">
                             <div class="article-thumbnail">
-                                <img src="img/bg-img/7.jpg" alt="">
+                                <img src="img/bg-img/7.jpg" alt="" id="f2">
                             </div>
                             <div class="article-content">
-                                <a href="single-post.html" class="post-title">10 Tips to be a better gamer</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-date">July 12, 2018</a>
-                                    <a href="#" class="post-comments">2 Comments</a>
+                                <a href="single-post.html" class="post-title" id="g2">10 Tips to be a better gamer</a>
+                                <div class="post-meta" >
+                                    <a  class="post-date" id="h2"><a>现价：</a>2</a>
+                                    <a  class="post-comments" id="i2"><a>原价：</a>2</a>
+                                    <a  class="post-date" id="j2"><a>折扣：</a>2</a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
+                                <p id="k2">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
                             </div>
                         </div>
 
                         <!-- *** Single Articles Area *** -->
                         <div class="single-articles-area style-2 d-flex flex-wrap mb-30 wow fadeInUp" data-wow-delay="700ms">
                             <div class="article-thumbnail">
-                                <img src="img/bg-img/8.jpg" alt="">
+                                <img src="img/bg-img/8.jpg" alt="" id="f3">
                             </div>
                             <div class="article-content">
-                                <a href="single-post.html" class="post-title">Microsoft has some new tips</a>
-                                <div class="post-meta">
-                                    <a href="#" class="post-date">July 12, 2018</a>
-                                    <a href="#" class="post-comments">2 Comments</a>
+                                <a href="single-post.html" class="post-title" id="g3">Microsoft has some new tips</a>
+                                <div class="post-meta" >
+                                    <a  class="post-date" id="h3"><a>现价：</a>3</a>
+                                    <a  class="post-comments" id="i3"><a>原价：</a>3</a>
+                                    <a  class="post-date" id="j3"><a>折扣：</a>3</a>
                                 </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
+                                <p id="k3">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris velit arcu, scelerisque dignissim massa quis, mattis facilisis erat. Aliquam erat volutpat. Sed efficitur diam.</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-12 col-md-6 col-lg-4">
-                    <!-- Title -->
-                    <h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This week’s deal</h2>
+                <!--<div class="col-12 col-md-6 col-lg-4">-->
+                    <!--&lt;!&ndash; Title &ndash;&gt;-->
+                    <!--<h2 class="section-title mb-70 wow fadeInUp" data-wow-delay="100ms">This week’s deal</h2>-->
 
-                    <!-- Single Widget Area -->
-                    <div class="single-widget-area add-widget wow fadeInUp" data-wow-delay="300ms">
-                        <a href="#"><img src="img/bg-img/add.png" alt=""></a>
-                        <!-- Side Img -->
-                        <img src="img/bg-img/side-img.png" class="side-img" alt="">
-                    </div>
-                </div>
+                    <!--&lt;!&ndash; Single Widget Area &ndash;&gt;-->
+                    <!--<div class="single-widget-area add-widget wow fadeInUp" data-wow-delay="300ms">-->
+                        <!--<a href="#"><img src="img/bg-img/add.png" alt=""></a>-->
+                        <!--&lt;!&ndash; Side Img &ndash;&gt;-->
+                        <!--<img src="img/bg-img/side-img.png" class="side-img" alt="">-->
+                    <!--</div>-->
+                <!--</div>-->
             </div>
         </div>
     </section>
@@ -905,10 +852,10 @@
                 <div class="row h-100 align-items-center">
                     <div class="col-12 col-sm-5">
                         <!-- Copywrite Text -->
-                        <p class="copywrite-text"><a href="#">
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Colorlib All rights reserved | More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>
+                        <!--<p class="copywrite-text"><a href="#">-->
+<!--Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Colorlib All rights reserved | More Templates <a href="http://www.cssmoban.com/" target="_blank" title="模板之家">模板之家</a> - Collect from <a href="http://www.cssmoban.com/" title="网页模板" target="_blank">网页模板</a>-->
 
-                        </a></p>
+                        <!--</a></p>-->
 
                     </div>
                     <div class="col-12 col-sm-7">
@@ -926,6 +873,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
                 </div>
             </div>
         </div>
+
     </footer>
     <!-- ##### Footer Area End ##### -->
 
@@ -940,6 +888,151 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> - Col
     <script src="js/plugins/plugins.js"></script>
     <!-- Active js -->
     <script src="js/active.js"></script>
+
+    <script type="text/javascript">
+        <!--// $("#img").function(){-->
+           $.ajax({
+                type: "post",//请求类型
+                url: "/test",//请求地址
+               // async:false,
+                dataType: "json",//接收后台数据的格式
+                 data : {　　　　　　　　　　　<!--&lt;!&ndash;data ：发送给服务器的数据 &ndash;&gt;-->
+                    // uUsername : u,　　　　　　  &lt;!&ndash; 使用自己声明的对象 &ndash;&gt;
+                    // uPwd : $("#pwd").val()　　　 //直接获取页面对象
+                },
+                contentType:"application/json",
+                success:function(returnData){
+                console.log(returnData);
+
+                var imgList=returnData.map(function (item,idx){
+                    return `
+<div class="owl-item">
+  <div class="single-games-slide" >
+                        <a href="https://www.baidu.com"><img src="${item.img_path}"  alt="" ></a>
+
+                        <div class="slide-text">
+                            <a  class="game-title" >${item.gamename}</a>
+                            <div class="meta-data">
+                                <a >原价: <a >${item.original_price}</a></a>
+                                <a >现价: <a >${item.now_price}</a></a>
+                            </div>
+                        </div>
+                    </div>
+</div>
+          `
+                }).join('')
+
+                  $(document.querySelectorAll('.owl-stage-outer')[1].querySelector('.owl-stage')).html(imgList)
+
+                    // $.each(returnData,function (i,item) {
+                    //     console.log(item);
+                    //     // var aid = "#a"+(i+1);
+                    //     // console.log(aid);
+                    //     // var bid = "#b"+(i+1);
+                    //     // var cid = "#c"+(i+1);
+                    //     // var did = "#d"+(i+1);
+                    //     //
+                    //     // console.log($(aid)+"------");
+                    //     // $(aid).attr("src",returnData[i].img_path);
+                    //     // $(bid).text(returnData[i].gamename);
+                    //     // $(cid).text(returnData[i].original_price);
+                    //     // $(did).text(returnData[i].now_price);
+                    //
+                    //     $("#hot").html("<div class=\"single-games-slide\" >\n" +
+                    //         "                            <a href=\"https://www.baidu.com\"><img src=\"returnData[i].img_path\" id=\"a1\" alt=\"\" ></a>\n" +
+                    //         "\n" +
+                    //         "                            <div class=\"slide-text\">\n" +
+                    //         "                            <a  class=\"game-title\" id=\"b1\">returnData[i].gamename</a>\n" +
+                    //         "                            <div class=\"meta-data\">\n" +
+                    //         "                            <a >原价: <a id=\"c1\">returnData[i].original_price</a></a>\n" +
+                    //         "                        <a >现价: <a id=\"d1\">returnData[i].now_price</a></a>\n" +
+                    //         "                        </div>\n" +
+                    //         "                        </div>\n" +
+                    //         "                        </div>")
+
+                       //
+                       //  $("<div class='owl-item active' style='width: 199.833px; margin-right: 30px;'>\n+<div class='single-games-slide' >\n" +
+                       //      "                            <a href='#'><img src='"+returnData[i].img_path+"' style='width: 200px' height='339px' id='a1' alt='' ></a>\n" +
+                       //      "\n" +
+                       //      "                            <div class='slide-text'>\n" +
+                       //      "                            <a  class='game-title' id='b1'>"+returnData[i].gamename+"</a>\n" +
+                       //      "                            <div class='meta-data'>\n" +
+                       //      "                            <a >原价: <a id='c1'>"+returnData[i].original_price+"</a></a>\n" +
+                       //      "                        <a >现价: <a id='d1'>"+returnData[i].now_price+"</a></a>\n" +
+                       //      "                        </div>\n" +
+                       //      "                        </div>\n" +
+                       //      "                        </div>\n+</div>").insertBefore($(".owl-stage-outer .owl-stage .owl-item cloned:first"))
+                       // </div>"
+                    // })
+
+                }
+            })
+
+        // 销量推荐
+        $.ajax({
+            type:"post",
+
+            url: "/test",//请求地址
+            // async:false,
+            dataType: "json",//接收后台数据的格式
+            data : {　　　　　　　　　　　<!--&lt;!&ndash;data ：发送给服务器的数据 &ndash;&gt;-->
+                // uUsername : u,　　　　　　  &lt;!&ndash; 使用自己声明的对象 &ndash;&gt;
+                // uPwd : $("#pwd").val()　　　 //直接获取页面对象
+            },
+            contentType:"application/json",
+            success:function (data) {
+
+                $.each(data,function(i,item){
+                    var aid = "#a"+(i+1);
+                    var bid = "#b"+(i+1);
+                    var cid = "#c"+(i+1);
+                    var did = "#d"+(i+1);
+                    var eid = "#e"+(i+1);
+
+                    $(aid).attr("src",data[i].img_path);
+                    $(bid).text(data[i].gamename);
+                    $(cid).text(data[i].original_price);
+                    $(did).text(data[i].now_price);
+                    $(eid).attr("style","background-image: url("+data[i].img_path+")")
+
+                })
+            }
+        })
+
+        //底裤折扣推荐
+        $.ajax({
+            type:"post",
+
+            url: "/lowDiscount",//请求地址
+
+            dataType: "json",//接收后台数据的格式
+            data : {　　　　　　　　　　　<!--&lt;!&ndash;data ：发送给服务器的数据 &ndash;&gt;-->
+                // uUsername : u,　　　　　　  &lt;!&ndash; 使用自己声明的对象 &ndash;&gt;
+                // uPwd : $("#pwd").val()　　　 //直接获取页面对象
+            },
+            contentType:"application/json",
+            success:function (data) {
+
+                $.each(data,function(i,item){
+                    var fid = "#f"+(i+1);
+                    var gid = "#g"+(i+1);
+                    var hid = "#h"+(i+1);
+                    var iid = "#i"+(i+1);
+                    var jid = "#j"+(i+1);
+                    var kid = "#k"+(i+1);
+
+                    $(fid).attr("src",data[i].img_path);
+                    $(gid).text(data[i].gamename);
+                    $(hid).text(data[i].now_price);
+                    $(iid).text(data[i].original_price);
+                    $(jid).text(data[i].discount)
+                    $(kid).text(data[i].desc)
+
+                })
+            }
+        })
+
+ </script>
 </body>
 
 </html>

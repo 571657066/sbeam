@@ -7,7 +7,7 @@
       WARNING - @mbg.generated
     -->
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="adminName" property="adminName" jdbcType="VARCHAR" />
+    <result column="adminName" property="adminname" jdbcType="VARCHAR" />
     <result column="password" property="password" jdbcType="VARCHAR" />
     <result column="flag" property="flag" jdbcType="INTEGER" />
 
@@ -26,7 +26,7 @@
     </sql>
 
 <!--验证账号密码-->
-  <select id="getLogin"  parameterType="TbAdmin" resultType="TbAdmin" >
+  <select id="getLogin"  parameterType="com.sbeam.dao.pojo.TbAdmin" resultMap="BaseResultMap">
     SELECT
     *
     FROM
@@ -34,7 +34,7 @@
    where
     adminName=#{adminname} and
 
-    password=#{password}
+    password=#{password} and flag=1;
 
   </select>
 
@@ -94,6 +94,7 @@
   <select id="listAllAdmin" parameterType="com.sbeam.dao.pojo.TbAdmin" resultType="com.sbeam.dao.pojo.TbAdmin">
     SELECT * FROM admin_info WHERE flag = 1
   </select>
+
 <!--批量删除-->
   <delete id="batDelAdmin" parameterType="java.util.List">
     delete from admin_info where id in
@@ -101,6 +102,17 @@
       #{ids}
     </foreach>
   </delete>
-
+  <!--批量删除-->
+  <update id="allDeleAtricleByIds" parameterType="com.sbeam.dto.ArrayListVo">
+    update admin_info
+    set
+    flag = '1'
+    where
+    id in(
+    <foreach collection="unIds" item="Id" separator=",">
+      #{Id}
+    </foreach>
+    )
+  </update>
 </mapper>
 
